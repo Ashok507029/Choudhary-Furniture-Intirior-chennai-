@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: choudhary-interiors-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: JWT_SECRET
+        value: cfi_luxury_interiors_jwt_secret_2026
+      - key: ADMIN_EMAIL
+        value: admin@cfinteriors.com
+      - key: ADMIN_PASSWORD
+        value: admin123
+      - key: MONGO_URI
+        sync: false
