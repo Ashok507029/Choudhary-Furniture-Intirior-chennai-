@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Control Portal | Choudhary Furniture &amp; Interiors</title>
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Base Styling -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background-color: #0c0b0a;
+      color: #e0e0e0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .admin-navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 5%;
+      background: rgba(18, 17, 16, 0.95);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .admin-brand img {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      border: 1px solid var(--color-gold);
+    }
+
+    .admin-brand-text h2 {
+      font-family: var(--font-playfair);
+      font-size: 1.25rem;
+      color: #fff;
+      margin: 0;
+      letter-spacing: 0.05em;
+    }
+
+    .admin-brand-text span {
+      font-size: 0.75rem;
+      color: var(--color-gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .admin-wrapper {
+      max-width: 1100px;
+      width: 90%;
+      margin: 40px auto 60px;
+      flex: 1;
+    }
+
+    .admin-gate-card {
+      max-width: 440px;
+      margin: 60px auto;
+      background: linear-gradient(145deg, #161513 0%, #100f0e 100%);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      border-radius: 16px;
+      padding: 36px 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+      text-align: center;
+    }
+
+    .admin-gate-card .crest-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 16px;
+      border-radius: 12px;
+      border: 1px solid var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(212, 175, 55, 0.1);
+      color: var(--color-gold);
+    }
+
+    .admin-dashboard-container {
+      background: #141312;
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+
+    .admin-tabs-header {
+      display: flex;
+      background: #0f0e0d;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      overflow-x: auto;
+    }
+
+    .admin-tab-nav-btn {
+      padding: 16px 24px;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: #888;
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .admin-tab-nav-btn.active {
+      color: var(--color-gold);
+      border-bottom-color: var(--color-gold);
+      background: rgba(212, 175, 55, 0.05);
+    }
+
+    .admin-tab-content {
+      padding: 36px;
+      display: none;
+    }
+
+    .admin-tab-content.active {
+      display: block;
+    }
+
+    .dropzone-box {
+      border: 2px dashed rgba(212, 175, 55, 0.4);
+      background: rgba(212, 175, 55, 0.03);
+      border-radius: 12px;
+      padding: 36px 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .dropzone-box:hover {
+      border-color: var(--color-gold);
+      background: rgba(212, 175, 55, 0.07);
+    }
+
+    .dropzone-box input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .preview-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .preview-strip-grid img {
+      width: 100%;
+      height: 90px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+    }
+
+    .admin-project-card {
+      display: flex;
+      gap: 20px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+
+    .admin-project-card img {
+      width: 90px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .btn-danger-sm {
+      background: rgba(220, 53, 69, 0.15);
+      border: 1px solid #dc3545;
+      color: #ff6b7a;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-danger-sm:hover {
+      background: #dc3545;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Admin Navbar -->
+  <header class="admin-navbar">
+    <a href="index.html" class="admin-brand" title="View Public Website">
+      <img src="images/logo.png" alt="CFI Logo">
+      <div class="admin-brand-text">
+        <h2>CHOUDHARY</h2>
+        <span>Private Admin Portal</span>
+      </div>
+    </a>
+    <div style="display: flex; gap: 12px; align-items: center;">
+      <button id="btn-logout-portal" class="btn" style="padding: 8px 16px; font-size: 0.82rem; background: rgba(220, 53, 69, 0.15); border: 1px solid #dc3545; color: #ff6b7a; border-radius: 6px; cursor: pointer; display: none; align-items: center; gap: 6px;">
+        <i data-lucide="lock"></i> Lock Portal
+      </button>
+      <a href="http://localhost:5173/admin" target="_blank" class="btn" style="padding: 8px 16px; font-size: 0.82rem; background: rgba(212, 175, 55, 0.15); border: 1px solid var(--color-gold); color: var(--color-gold); border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+        <i data-lucide="database"></i> Full MERN Dashboard
+      </a>
+      <a href="index.html" class="btn" style="padding: 8px 16px; font-size: 0.82rem; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #ccc; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+        <i data-lucide="eye"></i> Back to Site
+      </a>
+    </div>
+  </header>
+
+  <main class="admin-wrapper">
+
+    <!-- Passcode Gate (Displayed when not logged in) -->
+    <div id="admin-passcode-gate" class="admin-gate-card">
+      <div class="crest-icon">
+        <i data-lucide="shield-lock" style="width: 30px; height: 30px;"></i>
+      </div>
+      <h3 style="font-family: var(--font-playfair); color: #fff; font-size: 1.5rem; margin-bottom: 8px;">Restricted Admin Area</h3>
+      <p style="color: #888; font-size: 0.88rem; margin-bottom: 24px;">This portal is private for managing project photos, portfolio items, and inquiries.</p>
+      
+      <form id="standalone-passcode-form">
+        <div style="text-align: left; margin-bottom: 16px;">
+          <label style="display: block; font-size: 0.8rem; color: var(--color-gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">Security Password</label>
+          <input type="password" id="gate-passcode-input" class="form-control" placeholder="Enter Security Password" required autocomplete="current-password" style="width: 100%; padding: 12px; border-radius: 8px; background: #1c1a18; border: 1px solid rgba(212, 175, 55, 0.3); color: #fff;">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; justify-content: center; font-size: 0.95rem;">
+          Verify Password <i data-lucide="shield-check"></i>
+        </button>
+        <div id="gate-error-msg" style="color: #ff6b7a; font-size: 0.85rem; margin-top: 12px; display: none;"></div>
+      </form>
+    </div>
+
+    <!-- Main Admin Dashboard (Displayed after unlock) -->
+    <div id="admin-main-dashboard" class="admin-dashboard-container" style="display: none;">
+      
+      <!-- Tabs Navigation -->
+      <div class="admin-tabs-header">
+        <button class="admin-tab-nav-btn active" data-tab="tab-upload">
+          <i data-lucide="upload-cloud"></i> Upload Project Photos
+        </button>
+        <button class="admin-tab-nav-btn" data-tab="tab-manage">
+          <i data-lucide="layout-grid"></i> Manage Portfolio Projects
+        </button>
+        <button class="admin-tab-nav-btn" data-tab="tab-info">
+          <i data-lucide="info"></i> Quick Guide &amp; Shortcuts
+        </button>
+      </div>
+
+      <!-- Tab 1: Upload Project Photos -->
+      <div id="tab-upload" class="admin-tab-content active">
+        <div style="max-width: 800px; margin: 0 auto;">
+          <div style="margin-bottom: 24px;">
+            <h3 style="font-family: var(--font-playfair); color: #fff; font-size: 1.5rem; margin-bottom: 6px;">Add New Handcrafted Project</h3>
+            <p style="color: #888; font-size: 0.88rem;">Photos will be published directly into your live website portfolio gallery.</p>
+          </div>
+
+          <form id="dashboard-upload-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="dash-proj-name">Project Title *</label>
+                <input type="text" id="dash-proj-name" class="form-control" placeholder="e.g. Modern Villa Teak Wood Suite" required>
+              </div>
+              <div class="form-group">
+                <label for="dash-proj-category">Architectural Category *</label>
+                <select id="dash-proj-category" class="form-control" required>
+                  <option value="" disabled selected>Select category</option>
+                  <option value="residential">Private Residences</option>
+                  <option value="office">Offices &amp; Boardrooms</option>
+                  <option value="shop">Retail Showrooms</option>
+                  <option value="commercial">Hospitality &amp; Commercial</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="dash-proj-location">Location / Area *</label>
+                <input type="text" id="dash-proj-location" class="form-control" placeholder="e.g. Boat Club Road, Chennai" required>
+              </div>
+              <div class="form-group">
+                <label for="dash-proj-materials">Materials Used (Optional)</label>
+                <input type="text" id="dash-proj-materials" class="form-control" placeholder="e.g. Burma Teak, Blum Soft-Close, PU Finish">
+              </div>
+            </div>
+
+            <!-- Direct File Upload Dropzone -->
+            <div class="form-group" style="margin-top: 10px;">
+              <label>Select Project Photos from Device / Phone *</label>
+              <div class="dropzone-box" id="dash-dropzone">
+                <input type="file" id="dash-proj-images" accept="image/*" multiple required>
+                <i data-lucide="image-plus" style="width: 36px; height: 36px; color: var(--color-gold); margin-bottom: 10px;"></i>
+                <h4 style="color: #fff; margin-bottom: 4px; font-size: 1.05rem;">Click or Drag Photos Here</h4>
+                <p style="color: #888; font-size: 0.82rem; margin: 0;">Supports JPG, PNG, WEBP from your computer or phone gallery (Select 1 or multiple)</p>
+              </div>
+              <div id="dash-preview-strip" class="preview-strip-grid"></div>
+            </div>
+
+            <div class="form-group" style="margin-top: 16px;">
+              <label for="dash-proj-desc">Project Details &amp; Specifications *</label>
+              <textarea id="dash-proj-desc" class="form-control" rows="3" placeholder="Describe the on-site woodwork, finishes, wardrobe specs..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="btn-dash-upload-submit" style="width: 100%; padding: 14px; font-size: 1rem; justify-content: center; margin-top: 10px;">
+              Upload &amp; Publish Project <i data-lucide="upload-cloud"></i>
+            </button>
+
+            <div id="dash-upload-status" class="form-message" style="display: none; margin-top: 16px;"></div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Tab 2: Manage Projects -->
+      <div id="tab-manage" class="admin-tab-content">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <div>
+            <h3 style="font-family: var(--font-playfair); color: #fff; font-size: 1.5rem; margin-bottom: 4px;">Live Portfolio Projects</h3>
+            <p style="color: #888; font-size: 0.88rem;">Manage local projects or remove outdated showcases.</p>
+          </div>
+          <button id="btn-refresh-projects" class="btn" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #ccc; padding: 8px 14px; font-size: 0.82rem; border-radius: 6px;">
+            <i data-lucide="refresh-cw"></i> Refresh
+          </button>
+        </div>
+
+        <div id="dash-projects-list">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+      <!-- Tab 3: Quick Guide & Shortcuts -->
+      <div id="tab-info" class="admin-tab-content">
+        <div style="max-width: 800px; margin: 0 auto;">
+          <h3 style="font-family: var(--font-playfair); color: #fff; font-size: 1.5rem; margin-bottom: 16px;">The 2 Authorized Secure Admin Ways</h3>
+          
+          <div style="display: grid; gap: 16px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 10px; padding: 20px;">
+              <h4 style="color: var(--color-gold); margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="shield-check"></i> Way 1: Dedicated Private Admin Page (Password Protected)
+              </h4>
+              <p style="color: #ccc; font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                Access this private page (<code>admin.html</code>) or the full MERN Dashboard (<code>/admin</code>). It is completely unlinked from public navigation and requires the admin security password to unlock.
+              </p>
+            </div>
+
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(212,175,55,0.2); border-radius: 10px; padding: 20px;">
+              <h4 style="color: var(--color-gold); margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                <i data-lucide="keyboard"></i> Way 2: Secret Keyboard Shortcut (Password Protected)
+              </h4>
+              <p style="color: #ccc; font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                Press <strong>Ctrl + Shift + A</strong> (or <strong>Alt + A</strong>) on any page of the website to summon the secure admin uploader modal. Requires entering your security password.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof lucide !== 'undefined') lucide.createIcons();
+
+      const gateCard = document.getElementById('admin-passcode-gate');
+      const mainDashboard = document.getElementById('admin-main-dashboard');
+      const passForm = document.getElementById('standalone-passcode-form');
+      const passInput = document.getElementById('gate-passcode-input');
+      const errorMsg = document.getElementById('gate-error-msg');
+      const btnLogout = document.getElementById('btn-logout-portal');
+
+      const VALID_PASSWORDS = ['admin123', 'cfi@2026', 'cfi@admin'];
+
+      function unlockPortal() {
+        gateCard.style.display = 'none';
+        mainDashboard.style.display = 'block';
+        if (btnLogout) btnLogout.style.display = 'inline-flex';
+        sessionStorage.setItem('cfi_admin_auth', 'authenticated');
+        loadManagedProjects();
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      }
+
+      function lockPortal() {
+        sessionStorage.removeItem('cfi_admin_auth');
+        gateCard.style.display = 'block';
+        mainDashboard.style.display = 'none';
+        if (btnLogout) btnLogout.style.display = 'none';
+        if (passInput) passInput.value = '';
+        if (errorMsg) errorMsg.style.display = 'none';
+      }
+
+      if (btnLogout) {
+        btnLogout.addEventListener('click', lockPortal);
+      }
+
+      // Check if already authenticated in this session
+      if (sessionStorage.getItem('cfi_admin_auth') === 'authenticated') {
+        unlockPortal();
+      }
+
+      passForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const entered = passInput.value.trim();
+        if (VALID_PASSWORDS.includes(entered)) {
+          unlockPortal();
+        } else {
+          errorMsg.textContent = 'Incorrect security password. Access denied.';
+          errorMsg.style.display = 'block';
+          passInput.focus();
+        }
+      });
+
+      // Tab Switching
+      const tabBtns = document.querySelectorAll('.admin-tab-nav-btn');
+      const tabContents = document.querySelectorAll('.admin-tab-content');
+
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+
+          btn.classList.add('active');
+          const target = btn.getAttribute('data-tab');
+          const content = document.getElementById(target);
+          if (content) content.classList.add('active');
+          if (target === 'tab-manage') loadManagedProjects();
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+        });
+      });
+
+      // Photo Previews
+      const fileInput = document.getElementById('dash-proj-images');
+      const previewStrip = document.getElementById('dash-preview-strip');
+
+      fileInput.addEventListener('change', () => {
+        previewStrip.innerHTML = '';
+        const files = Array.from(fileInput.files || []);
+        files.forEach(file => {
+          const img = document.createElement('img');
+          img.src = URL.createObjectURL(file);
+          img.alt = file.name;
+          previewStrip.appendChild(img);
+        });
+      });
+
+      // Upload Form Submit
+      const uploadForm = document.getElementById('dashboard-upload-form');
+      const uploadStatus = document.getElementById('dash-upload-status');
+      const submitBtn = document.getElementById('btn-dash-upload-submit');
+
+      uploadForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Publishing Project... <i data-lucide="loader" class="animate-spin"></i>';
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+
+        const name = document.getElementById('dash-proj-name').value.trim();
+        const category = document.getElementById('dash-proj-category').value;
+        const location = document.getElementById('dash-proj-location').value.trim();
+        const materials = document.getElementById('dash-proj-materials').value.trim();
+        const desc = document.getElementById('dash-proj-desc').value.trim();
+        const files = Array.from(fileInput.files || []);
+
+        // Read files as base64 data URLs for permanent offline/local display
+        const readFiles = files.map(file => {
+          return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = (ev) => resolve(ev.target.result);
+            reader.readAsDataURL(file);
+          });
+        });
+
+        try {
+          const base64Urls = await Promise.all(readFiles);
+          const newProject = {
+            id: 'proj_' + Date.now(),
+            name: name,
+            category: category,
+            location: location,
+            materials: materials,
+            description: desc,
+            images: base64Urls.length > 0 ? base64Urls : ['https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80'],
+            timestamp: new Date().toISOString()
+          };
+
+          // Save to localStorage
+          const saved = JSON.parse(localStorage.getItem('cfi_custom_projects') || '[]');
+          saved.unshift(newProject);
+          localStorage.setItem('cfi_custom_projects', JSON.stringify(saved));
+
+          // Also try to sync with MongoDB server if running
+          try {
+            await fetch('http://localhost:5000/api/projects', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                title: name,
+                category: category === 'residential' ? 'Residential' : category === 'office' ? 'Offices & Commercial' : category === 'shop' ? 'Commercial & Retail' : 'Custom Furniture',
+                location: location,
+                description: desc,
+                mainImage: base64Urls[0] || 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800&q=80',
+                gallery: base64Urls
+              })
+            });
+          } catch(err) {
+            console.log('Server offline or sync bypassed; saved to local browser showcase.');
+          }
+
+          uploadStatus.className = 'form-message success';
+          uploadStatus.innerHTML = '✨ Project successfully uploaded &amp; published to your live portfolio!';
+          uploadStatus.style.display = 'block';
+
+          uploadForm.reset();
+          previewStrip.innerHTML = '';
+        } catch (err) {
+          uploadStatus.className = 'form-message error';
+          uploadStatus.textContent = 'Upload failed: ' + err.message;
+          uploadStatus.style.display = 'block';
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Upload & Publish Project <i data-lucide="upload-cloud"></i>';
+          if (typeof lucide !== 'undefined') lucide.createIcons();
+        }
+      });
+
+      // Load Managed Projects
+      function loadManagedProjects() {
+        const container = document.getElementById('dash-projects-list');
+        const projects = JSON.parse(localStorage.getItem('cfi_custom_projects') || '[]');
+
+        if (projects.length === 0) {
+          container.innerHTML = '<p style="text-align: center; color: #777; padding: 40px 0;">No uploaded custom projects found. Upload your first project in the "Upload Project Photos" tab.</p>';
+          return;
+        }
+
+        container.innerHTML = '';
+        projects.forEach(p => {
+          const card = document.createElement('div');
+          card.className = 'admin-project-card';
+          const imgUrl = (p.images && p.images[0]) ? p.images[0] : 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=300&q=80';
+          card.innerHTML = `
+            <img src="${imgUrl}" alt="${p.name}">
+            <div style="flex: 1;">
+              <h4 style="color: #fff; margin: 0 0 4px; font-size: 1.05rem;">${p.name}</h4>
+              <p style="color: var(--color-gold); font-size: 0.8rem; margin: 0 0 4px; text-transform: uppercase;">${p.category} &bull; ${p.location}</p>
+              <p style="color: #888; font-size: 0.82rem; margin: 0;">${p.description.substring(0, 80)}...</p>
+            </div>
+            <button class="btn-danger-sm btn-delete-project" data-id="${p.id}">
+              <i data-lucide="trash-2"></i> Delete
+            </button>
+          `;
+          container.appendChild(card);
+        });
+
+        // Delete project handlers
+        container.querySelectorAll('.btn-delete-project').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const id = btn.getAttribute('data-id');
+            if (confirm('Are you sure you want to delete this project from the live portfolio?')) {
+              let saved = JSON.parse(localStorage.getItem('cfi_custom_projects') || '[]');
+              saved = saved.filter(p => p.id !== id);
+              localStorage.setItem('cfi_custom_projects', JSON.stringify(saved));
+              loadManagedProjects();
+            }
+          });
+        });
+
+        if (typeof lucide !== 'undefined') lucide.createIcons();
+      }
+
+      const btnRefresh = document.getElementById('btn-refresh-projects');
+      if (btnRefresh) btnRefresh.addEventListener('click', loadManagedProjects);
+    });
+  </script>
+</body>
+</html>
