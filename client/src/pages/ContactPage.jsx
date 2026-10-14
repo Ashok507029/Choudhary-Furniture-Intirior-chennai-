@@ -141,7 +141,7 @@ const ContactPage = () => {
                   Send floor plans or photos directly to our Principal Architect on WhatsApp for immediate feedback.
                 </p>
                 <a
-                  href="https://wa.me/916375507029?text=Hello%20CFI%20Architects!%20I%20have%20an%20interior%20enquiry%20regarding%20my%20property."
+                  href="https://wa.me/916375507029?text=Hello%20Aashapura%20Architects!%20I%20have%20an%20interior%20enquiry%20regarding%20my%20property."
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{

@@ -21,7 +21,7 @@ const AboutPage = ({ onOpenConsultation }) => {
             <span style={{ color: '#d4af37', fontStyle: 'italic' }}>Crafted 100% On Site.</span>
           </h1>
           <p style={{ color: '#bbb', fontSize: '1.1rem', lineHeight: 1.7 }}>
-            For over two decades, Choudhary Furniture &amp; Interiors has delivered bespoke residential interiors, architectural woodwork, and luxury turnkey contracting executed directly on location with hereditary master karigars.
+            For over two decades, Aashapura Interior &amp; Furniture has delivered bespoke residential interiors, architectural woodwork, and luxury turnkey contracting executed directly on location with hereditary master karigars.
           </p>
         </div>
       </section>
@@ -36,7 +36,7 @@ const AboutPage = ({ onOpenConsultation }) => {
                 Where Rajasthani Artistry Meets Architectural Precision
               </h2>
               <p style={{ color: '#aaa', lineHeight: 1.8, marginBottom: '1.25rem' }}>
-                Originating from a lineage of heritage wood artisans and established in Sowcarpet, Chennai, CFI was founded on an unyielding principle: true architectural luxury cannot be mass-produced in remote factories. Every luxury home has its own unique geometry, wall undulations, lighting angles, and spirit.
+                Originating from a lineage of heritage wood artisans and established in Sowcarpet, Chennai, Aashapura was founded on an unyielding principle: true architectural luxury cannot be mass-produced in remote factories. Every luxury home has its own unique geometry, wall undulations, lighting angles, and spirit.
               </p>
               <p style={{ color: '#aaa', lineHeight: 1.8, marginBottom: '2rem' }}>
                 That is why our entire execution model is <strong>100% On-Site Turnkey Craftsmanship</strong>. Our dedicated teams of master karigars, architects, and joinery supervisors camp on location. Every wardrobe, kitchen carcass, fluted wall panel, and bespoke furniture piece is measured, tailored, and fitted directly against the physical surfaces of your estate.
@@ -78,7 +78,7 @@ const AboutPage = ({ onOpenConsultation }) => {
                   padding: '1.5rem',
                   background: 'linear-gradient(transparent, rgba(0,0,0,0.9))',
                 }}>
-                  <p style={{ color: '#d4af37', fontSize: '0.9rem', margin: 0, fontWeight: 600 }}>CFI On-Site Turnkey Execution, Chennai</p>
+                  <p style={{ color: '#d4af37', fontSize: '0.9rem', margin: 0, fontWeight: 600 }}>Aashapura On-Site Turnkey Execution, Chennai</p>
                   <p style={{ color: '#ccc', fontSize: '0.8rem', margin: '4px 0 0' }}>Bespoke tailoring, framing, and architectural fitting directly on location</p>
                 </div>
               </div>
@@ -91,7 +91,7 @@ const AboutPage = ({ onOpenConsultation }) => {
       <section style={{ padding: '6rem 0', background: '#121110' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-            <span className="section-subtitle">The CFI Method</span>
+            <span className="section-subtitle">The Aashapura Method</span>
             <h2 className="section-title">Why 100% On-Site Craftsmanship Wins</h2>
             <p style={{ color: '#888', maxWidth: '650px', margin: '0.5rem auto 0' }}>
               Ready-made catalog boxes often leave awkward gaps and fillers. Our on-site artisans craft every piece flush to the wall with zero compromise.
@@ -149,7 +149,7 @@ const AboutPage = ({ onOpenConsultation }) => {
             <span className="section-subtitle">Provenance &amp; Quality</span>
             <h2 className="section-title">The Materials We Swear By</h2>
             <p style={{ color: '#888', marginBottom: '2.5rem' }}>
-              We refuse to cut corners. Every fastener, sheet, and veneer that enters a CFI residence is verified for durability and environmental compliance.
+              We refuse to cut corners. Every fastener, sheet, and veneer that enters a Aashapura residence is verified for durability and environmental compliance.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem', textAlign: 'left' }}>

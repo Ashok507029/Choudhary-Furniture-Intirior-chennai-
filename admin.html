@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Control Portal | Choudhary Furniture &amp; Interiors</title>
+  <title>Admin Control Portal | Aashapura Interior &amp; Furniture</title>
   <meta name="robots" content="noindex, nofollow">
 
   <!-- Favicon -->
@@ -234,10 +234,10 @@
   <!-- Admin Navbar -->
   <header class="admin-navbar">
     <a href="index.html" class="admin-brand" title="View Public Website">
-      <img src="images/logo.png" alt="CFI Logo">
+      <img src="images/logo.png" alt="Aashapura Logo">
       <div class="admin-brand-text">
-        <h2>CHOUDHARY</h2>
-        <span>Private Admin Portal</span>
+        <h2>AASHAPURA</h2>
+        <span>Interior & Furniture • Admin Portal</span>
       </div>
     </a>
     <div style="display: flex; gap: 12px; align-items: center;">
@@ -418,13 +418,13 @@
         gateCard.style.display = 'none';
         mainDashboard.style.display = 'block';
         if (btnLogout) btnLogout.style.display = 'inline-flex';
-        sessionStorage.setItem('cfi_admin_auth', 'authenticated');
+        sessionStorage.setItem('aashapura_admin_auth', 'authenticated');
         loadManagedProjects();
         if (typeof lucide !== 'undefined') lucide.createIcons();
       }
 
       function lockPortal() {
-        sessionStorage.removeItem('cfi_admin_auth');
+        sessionStorage.removeItem('aashapura_admin_auth');
         gateCard.style.display = 'block';
         mainDashboard.style.display = 'none';
         if (btnLogout) btnLogout.style.display = 'none';
@@ -437,7 +437,7 @@
       }
 
       // Check if already authenticated in this session
-      if (sessionStorage.getItem('cfi_admin_auth') === 'authenticated') {
+      if (sessionStorage.getItem('aashapura_admin_auth') === 'authenticated') {
         unlockPortal();
       }
 
@@ -527,9 +527,9 @@
           };
 
           // Save to localStorage
-          const saved = JSON.parse(localStorage.getItem('cfi_custom_projects') || '[]');
+          const saved = JSON.parse(localStorage.getItem('aashapura_custom_projects') || '[]');
           saved.unshift(newProject);
-          localStorage.setItem('cfi_custom_projects', JSON.stringify(saved));
+          localStorage.setItem('aashapura_custom_projects', JSON.stringify(saved));
 
           // Also try to sync with MongoDB server if running
           try {
@@ -569,7 +569,7 @@
       // Load Managed Projects
       function loadManagedProjects() {
         const container = document.getElementById('dash-projects-list');
-        const projects = JSON.parse(localStorage.getItem('cfi_custom_projects') || '[]');
+        const projects = JSON.parse(localStorage.getItem('aashapura_custom_projects') || '[]');
 
         if (projects.length === 0) {
           container.innerHTML = '<p style="text-align: center; color: #777; padding: 40px 0;">No uploaded custom projects found. Upload your first project in the "Upload Project Photos" tab.</p>';
@@ -600,9 +600,9 @@
           btn.addEventListener('click', () => {
             const id = btn.getAttribute('data-id');
             if (confirm('Are you sure you want to delete this project from the live portfolio?')) {
-              let saved = JSON.parse(localStorage.getItem('cfi_custom_projects') || '[]');
+              let saved = JSON.parse(localStorage.getItem('aashapura_custom_projects') || '[]');
               saved = saved.filter(p => p.id !== id);
-              localStorage.setItem('cfi_custom_projects', JSON.stringify(saved));
+              localStorage.setItem('aashapura_custom_projects', JSON.stringify(saved));
               loadManagedProjects();
             }
           });

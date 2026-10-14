@@ -1,6 +1,6 @@
-# 🏛️ Choudhary Furniture & Interiors (CFI) - MERN Stack Project
+# 🏛️ Aashapura Interior & Furniture (AIF) - MERN Stack Project
 
-A fullstack **MERN (MongoDB, Express, React, Node.js)** enterprise application for Choudhary Furniture & Interiors — an elite contract-based interior design atelier and bespoke luxury furniture manufacturer.
+A fullstack **MERN (MongoDB, Express, React, Node.js)** enterprise application for Aashapura Interior & Furniture — an elite contract-based interior design atelier and bespoke luxury furniture manufacturer.
 
 ---
 
@@ -20,10 +20,10 @@ Check `server/.env`:
 ```env
 PORT=5000
 # For local MongoDB:
-MONGO_URI=mongodb://127.0.0.1:27017/choudhary_interiors
+MONGO_URI=mongodb://127.0.0.1:27017/aashapura_interiors
 
 # For MongoDB Atlas (Free Cloud Database):
-# MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxx.mongodb.net/choudhary_interiors?retryWrites=true&w=majority
+# MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxx.mongodb.net/aashapura_interiors?retryWrites=true&w=majority
 
 JWT_SECRET=cfi_luxury_interiors_super_secret_jwt_key_2026
 ADMIN_EMAIL=admin@cfinteriors.com

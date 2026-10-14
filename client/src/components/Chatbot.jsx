@@ -8,7 +8,7 @@ const Chatbot = () => {
     {
       id: 1,
       sender: 'bot',
-      text: 'Namaste! Welcome to Choudhary Furniture & Interiors. I am your Architectural Concierge. How may I assist your space design today?',
+      text: 'Namaste! Welcome to Aashapura Interior & Furniture. I am your Architectural Concierge. How may I assist your space design today?',
     },
   ]);
   const [input, setInput] = useState('');
@@ -111,7 +111,7 @@ const Chatbot = () => {
           aria-label="Open AI Concierge Chatbot"
         >
           <Sparkles size={18} />
-          <span>CFI Assistant</span>
+          <span>Aashapura Assistant</span>
         </button>
       )}
 
@@ -151,7 +151,7 @@ const Chatbot = () => {
                 <Sparkles size={16} />
               </div>
               <div>
-                <h4 style={{ margin: 0, fontSize: '0.95rem', color: '#f5f5f5', fontFamily: 'Playfair Display, serif' }}>CFI Concierge</h4>
+                <h4 style={{ margin: 0, fontSize: '0.95rem', color: '#f5f5f5', fontFamily: 'Playfair Display, serif' }}>Aashapura Concierge</h4>
                 <span style={{ fontSize: '0.75rem', color: '#4ade80' }}>● Online | Direct Lead Desk</span>
               </div>
             </div>

@@ -140,7 +140,7 @@ const ServicesPage = ({ onOpenConsultation }) => {
                     gap: '8px',
                   }}>
                     {service.icon}
-                    <span style={{ color: '#d4af37', fontSize: '0.85rem', fontWeight: 600 }}>CFI Signature</span>
+                    <span style={{ color: '#d4af37', fontSize: '0.85rem', fontWeight: 600 }}>Aashapura Signature</span>
                   </div>
                 </div>
 

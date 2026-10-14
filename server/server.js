@@ -33,7 +33,7 @@ app.use('/api/upload', require('./routes/uploadRoutes'));
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
-    system: 'Choudhary Furniture & Interiors REST API',
+    system: 'Aashapura Interior & Furniture REST API',
     timestamp: new Date().toISOString(),
   });
 });
@@ -41,7 +41,7 @@ app.get('/api/health', (req, res) => {
 // Root API Welcome
 app.get('/', (req, res) => {
   res.json({
-    message: 'Welcome to Choudhary Furniture & Interiors MERN Backend API',
+    message: 'Welcome to Aashapura Interior & Furniture MERN Backend API',
     endpoints: {
       projects: '/api/projects',
       inquiries: '/api/inquiries',

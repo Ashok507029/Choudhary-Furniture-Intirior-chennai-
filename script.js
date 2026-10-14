@@ -1,5 +1,5 @@
 /**
- * Choudhary Furniture & Interiors - Premium CMS & Star Review Integration
+ * Aashapura Interior & Furniture - Premium CMS & Star Review Integration
  * Handles:
  * - Dynamic Google Sheets CSV data loaders for projects and reviews
  * - Robust fallback logic to static HTML blocks when URLs are empty
@@ -817,7 +817,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = 'hidden';
 
     // Check if already unlocked in localStorage
-    const isUnlocked = sessionStorage.getItem('cfi_admin_auth') === 'true';
+    const isUnlocked = sessionStorage.getItem('aashapura_admin_auth') === 'true';
     const btnLockAdmin = document.getElementById('btn-lock-admin');
     if (isUnlocked) {
       if (adminLoginStep) adminLoginStep.style.display = 'none';
@@ -871,7 +871,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnLockAdmin = document.getElementById('btn-lock-admin');
   if (btnLockAdmin) {
     btnLockAdmin.addEventListener('click', () => {
-      sessionStorage.removeItem('cfi_admin_auth');
+      sessionStorage.removeItem('aashapura_admin_auth');
       if (adminLoginStep) adminLoginStep.style.display = 'block';
       if (adminUploaderStep) adminUploaderStep.style.display = 'none';
       btnLockAdmin.style.display = 'none';
@@ -896,7 +896,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Strict security password verification
       if (passcodeEntered === 'admin123' || passcodeEntered === 'cfi@2026' || passcodeEntered === 'cfi@admin') {
-        sessionStorage.setItem('cfi_admin_auth', 'true');
+        sessionStorage.setItem('aashapura_admin_auth', 'true');
         adminLoginStep.style.display = 'none';
         adminUploaderStep.style.display = 'block';
         if (btnLockAdmin) btnLockAdmin.style.display = 'inline-flex';
@@ -1355,7 +1355,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Update WhatsApp link text dynamically
     if (lightboxWhatsappLink) {
-      const waText = encodeURIComponent(`Hi Choudhary Furniture! I'm interested in getting a quote for something similar to your "${title}" project in ${location}.`);
+      const waText = encodeURIComponent(`Hi Aashapura Interior & Furniture! I'm interested in getting a quote for something similar to your "${title}" project in ${location}.`);
       lightboxWhatsappLink.href = `https://wa.me/916375507029?text=${waText}`;
     }
 
@@ -1819,7 +1819,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (daysValElem) daysValElem.textContent = `${currentDays} Days`;
 
     if (shareWaBtn) {
-      const msg = `Hello CFI Architects! I configured my project on your website estimator:%0A- Space: ${currentSpaceName}%0A- Execution Tier: ${currentTierName}%0A- Approximate Estimate: Rs.${formattedPrice}%0A- Guaranteed Handover: ${currentDays} Days.%0AI'd like to book a site measurement visit!`;
+      const msg = `Hello Aashapura Architects! I configured my project on your website estimator:%0A- Space: ${currentSpaceName}%0A- Execution Tier: ${currentTierName}%0A- Approximate Estimate: Rs.${formattedPrice}%0A- Guaranteed Handover: ${currentDays} Days.%0AI'd like to book a site measurement visit!`;
       shareWaBtn.href = `https://wa.me/916375507029?text=${msg}`;
     }
   }

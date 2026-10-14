@@ -24,7 +24,7 @@ import {
 } from 'lucide-react';
 
 const AdminDashboard = () => {
-  const [token, setToken] = useState(localStorage.getItem('cfi_admin_token') || '');
+  const [token, setToken] = useState(localStorage.getItem('aashapura_admin_token') || '');
   const [adminUser, setAdminUser] = useState(null);
 
   // Login form states
@@ -73,7 +73,7 @@ const AdminDashboard = () => {
       });
 
       if (res.data.success) {
-        localStorage.setItem('cfi_admin_token', res.data.token);
+        localStorage.setItem('aashapura_admin_token', res.data.token);
         setToken(res.data.token);
         setAdminUser(res.data.admin);
       }
@@ -85,7 +85,7 @@ const AdminDashboard = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem('cfi_admin_token');
+    localStorage.removeItem('aashapura_admin_token');
     setToken('');
     setAdminUser(null);
   };
@@ -269,7 +269,7 @@ const AdminDashboard = () => {
               <ShieldCheck size={28} color="#d4af37" />
             </div>
             <h2 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.8rem', color: '#fff', margin: 0 }}>
-              CFI Private Admin Desk
+              Aashapura Private Admin Desk
             </h2>
             <p style={{ color: '#888', fontSize: '0.85rem', marginTop: '0.4rem' }}>
               Restricted portal for project uploads and client lead management
@@ -356,7 +356,7 @@ const AdminDashboard = () => {
         }}>
           <div>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', color: '#d4af37', fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-              <ShieldCheck size={16} /> CFI Private Operations Desk (Admin Only)
+              <ShieldCheck size={16} /> Aashapura Private Operations Desk (Admin Only)
             </div>
             <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: '2.2rem', color: '#fff', margin: '0.25rem 0 0' }}>
               Project Studio &amp; Lead Management

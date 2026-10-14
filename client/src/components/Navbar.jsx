@@ -28,14 +28,14 @@ const Navbar = ({ onOpenConsultation }) => {
     <header className={`luxury-header ${scrolled ? 'header-scrolled' : ''}`}>
       <div className="header-container">
         {/* Brand Logo */}
-        <Link to="/" className="brand-logo" aria-label="Choudhary Furniture & Interiors Home">
+        <Link to="/" className="brand-logo" aria-label="Aashapura Interior & Furniture Home">
           <div className="brand-mark-wrapper">
-            <img src="/images/logo.png" alt="CFI Crest" className="brand-logo-img" />
+            <img src="/images/logo.png" alt="Aashapura Crest" className="brand-logo-img" />
             <div className="brand-glow"></div>
           </div>
           <div className="brand-text-group">
-            <span className="brand-title">CHOUDHARY</span>
-            <span className="brand-subtitle">FURNITURE &amp; INTERIORS</span>
+            <span className="brand-title">AASHAPURA</span>
+            <span className="brand-subtitle">INTERIOR &amp; FURNITURE</span>
             <span className="brand-tagline">EST. 2001 • 100% ON-SITE JOINERY</span>
           </div>
         </Link>

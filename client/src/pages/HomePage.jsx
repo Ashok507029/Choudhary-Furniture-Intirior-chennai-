@@ -190,7 +190,7 @@ const HomePage = ({ onOpenConsultation }) => {
               style={{ width: '100%', height: '100%', objectFit: 'cover', position: 'absolute', top: 0, left: 0 }}
             />
             <span style={{ position: 'absolute', top: '20px', right: '20px', background: 'rgba(0,0,0,0.7)', border: '1px solid #d4af37', color: '#d4af37', padding: '6px 14px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 600 }}>
-              CFI Completed Interior
+              Aashapura Completed Interior
             </span>
 
             {/* Before Image (Clipped) */}
@@ -274,7 +274,7 @@ const HomePage = ({ onOpenConsultation }) => {
             <span className="section-subtitle" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
               <Award size={14} color="#d4af37" /> Architectural Excellence
             </span>
-            <h2 className="section-title">The CFI On-Site Advantage</h2>
+            <h2 className="section-title">The Aashapura On-Site Advantage</h2>
           </div>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
@@ -431,7 +431,7 @@ const HomePage = ({ onOpenConsultation }) => {
             <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(212,175,55,0.2)', borderRadius: '12px', padding: '2rem' }}>
               <Quote size={28} color="#d4af37" style={{ marginBottom: '1rem', opacity: 0.6 }} />
               <p style={{ color: '#ccc', fontStyle: 'italic', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-                "CFI turned our 5,200 sq.ft villa in Boat Club into a masterpiece. Their dedicated on-site bespoke woodwork and Italian marble craftsmanship are second to none in South India."
+                "Aashapura turned our 5,200 sq.ft villa in Boat Club into a masterpiece. Their dedicated on-site bespoke woodwork and Italian marble craftsmanship are second to none in South India."
               </p>
               <div>
                 <h4 style={{ color: '#f3e5ab', margin: 0 }}>Dr. V. Sundaram</h4>
@@ -453,7 +453,7 @@ const HomePage = ({ onOpenConsultation }) => {
             <div style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(212,175,55,0.2)', borderRadius: '12px', padding: '2rem' }}>
               <Quote size={28} color="#d4af37" style={{ marginBottom: '1rem', opacity: 0.6 }} />
               <p style={{ color: '#ccc', fontStyle: 'italic', lineHeight: 1.7, marginBottom: '1.5rem' }}>
-                "We commissioned CFI for our 12,000 sq.ft tech headquarters boardroom and executive suites. The custom acoustic panels and 24-seater oak table are magnificent."
+                "We commissioned Aashapura for our 12,000 sq.ft tech headquarters boardroom and executive suites. The custom acoustic panels and 24-seater oak table are magnificent."
               </p>
               <div>
                 <h4 style={{ color: '#f3e5ab', margin: 0 }}>Karthik Narayanan</h4>
